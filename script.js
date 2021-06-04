@@ -63,14 +63,12 @@ const people = [
 const fifteen = inventors.filter(
   (inventor) => inventor.year >= 1500 && inventor.year < 1600
 );
-
 console.table(fifteen);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventor first and last names
 
 const names = inventors.map((inventor) => `${inventor.first} ${inventor.last}`);
-
 console.log(names);
 
 // Array.prototype.sort()
@@ -91,7 +89,6 @@ console.table(ordered);
 const totalYears = inventors.reduce((total, inventor) => {
   return total + (inventor.passed - inventor.year);
 }, 0);
-
 console.log(totalYears);
 
 // 5. Sort the inventors by years lived
@@ -110,3 +107,33 @@ const alpha = people.sort((lastOne, nextOne) => {
   return aLast > bLast ? 1 : -1;
 });
 console.log(alpha);
+
+// 7. Reduce Exercise
+// Sum up the instances of each of these
+const data = [
+  "car",
+  "car",
+  "truck",
+  "truck",
+  "bike",
+  "walk",
+  "car",
+  "van",
+  "bike",
+  "walk",
+  "car",
+  "van",
+  "car",
+  "truck",
+  "pogostick",
+];
+
+const transportation = data.reduce(function (obj, item) {
+  if (!obj[item]) {
+    obj[item] = 0;
+  }
+  obj[item]++;
+  return obj;
+}, {});
+
+console.log(transportation);
